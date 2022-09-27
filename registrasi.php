@@ -66,7 +66,7 @@ if (isset($_POST['submit'])) {
                 <label for="username">Username</label>
             </div>
             <div class="txt_field">
-                <input type="emailS" name="email" id="email" required>
+                <input type="email" name="email" id="email" required>
                 <span></span>
                 <label for="email">Email</label>
             </div>
