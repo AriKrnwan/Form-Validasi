@@ -9,6 +9,16 @@ if (isset($_POST['submit'])) {
     $password1 = $_POST['password'];
     $password2 = $_POST['password2'];
 
+    if (isset($_POST['username'])) {
+        $username = $_POST['username'];
+       
+        $query = mysqli_query($koneksi, "SELECT username FROM users WHERE username = '$username'"); 
+       
+        if($query->num_rows > 0) {
+         echo "<script>alert('Username sudah terdaftar');</script>";
+        }
+    }
+
     $cek_user = mysqli_query($koneksi, "SELECT * FROM users WHERE username = '$username'");
     $cek_login = mysqli_num_rows($cek_user);
 
@@ -56,7 +66,7 @@ if (isset($_POST['submit'])) {
                 <label for="username">Username</label>
             </div>
             <div class="txt_field">
-                <input type="text" name="email" id="email" required>
+                <input type="emailS" name="email" id="email" required>
                 <span></span>
                 <label for="email">Email</label>
             </div>
@@ -75,14 +85,18 @@ if (isset($_POST['submit'])) {
 		        }
             </script>
             <div class="txt_field">
-                <select class="form-control" name="combo1" id="combo1">
-	                <option value="">Pilih Combobox Statis</option>
-                    <option value="Nama Provinsi 1">Nama Provinsi 1</option>
-                    <option value="Nama Provinsi 2">Nama Provinsi 2</option>
-                    <option value="Nama Provinsi 3">Nama Provinsi 3</option>
-                    <option value="Nama Provinsi 4">Nama Provinsi 4</option>
-                    <option value="Nama Provinsi 5">Nama Provinsi 5</option>
+                <select class="form-control" name="univ" id="univ">
+	                <option value="">Pilih Universitas</option>
+                    <option value="Unesa">Universitas Negeri Surabaya</option>
+                    <option value="Unmul">Universitas Mulawarman</option>
+                    <option value="Unhas">Universitas Hasanuddin</option>
+                    <option value="ITK">Institut Teknologi Kalimantan</option>
                 </select>
+            </div>
+            <div class="txt_field">
+                <input type="date" name="date" id="date" required>
+                <span></span>
+                <label for="date">Tanggal Lahir</label>
             </div>
             <div class="txt_field">
                 <input type="password" name="password" id="password" required>

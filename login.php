@@ -56,6 +56,14 @@ if (isset($_POST['login'])) {
                 <span></span>
                 <label for="password">Password</label>
             </div>
+            <div class="txt_field">
+                <input type="text" name="captcha" id="captcha" required>
+                <span></span>
+                <label for="captcha">Isi Captcha</label>
+            </div>
+            <div class="pass">
+                <img src="captcha.php" alt="gambar" />
+            </div>
             <div class="pass"><a href="forgot.php">Forgot Password?</a></div>
             <button type="submit" name="login">Login</button>
             <div class="signup_link">
